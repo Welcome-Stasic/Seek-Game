@@ -31,8 +31,6 @@ function initGame() {
   };
 
   initItemManager(room, gameState, ui, onAllFound, sound);
-    room.addEventListener("click", sound.startMusic());
-    room.addEventListener("mousemove", sound.startMusic());
 }
 
 window.addEventListener("load", initGame);

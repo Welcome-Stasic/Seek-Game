@@ -19,8 +19,6 @@ let counterMiss = document.getElementById("counterMiss");
 
 let currentLevel = null;
 let miss = 0;
-let timer = null;
-let timeLeft = 0;
 
 export function initGame(level, params) {
   currentLevel = level;
@@ -55,7 +53,7 @@ export function initGame(level, params) {
   const ui = createUI(panel, counter, victoryMess);
   ui.renderPanel(gameState.getItems());
 
-  const flashlight = initFlashlight(overlay, itemsLayer, room, 130);
+  const flashlight = initFlashlight(overlay, itemsLayer, room, params.radius);
 
   const onAllFound = () => {
     const stars = calcStars(miss);

@@ -1,9 +1,9 @@
 import { sound } from "./sounds.js";
 import { levels } from "./config.js";
 import { getStars } from "./star.js";
-import { initGame } from "./main.js";
 
 document.addEventListener("DOMContentLoaded", () => {
+  room.style.backgroundImage = `url('${levels.easy.bg_img}')`;
   const startScreen = document.getElementById("start-screen");
   if (!startScreen) return;
 
@@ -27,6 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const params = levels[level];
       if (!params) return;
 
+      room.style.backgroundImage = `url('${params.bg_img}')`;
       sound.startMusic();
       startScreen.classList.add("opacity");
       setTimeout(() => startScreen.classList.add("hidden"), 200);

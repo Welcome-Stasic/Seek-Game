@@ -8,6 +8,16 @@ export const sound = {
     audio.volume = 0.1;
     audio.play();
   },
+  playGo: () => {
+    const audio = new Audio("sounds/go.mp3");
+    audio.volume = 0.3;
+    audio.play();
+  },
+  playTimeEnd: () => {
+    const audio = new Audio("sounds/timeEnd.mp3");
+    audio.volume = 0.1;
+    audio.play();
+  },
   playWrong: () => {
     const audio = new Audio("sounds/wrong.mp3");
     audio.volume = 0.1;

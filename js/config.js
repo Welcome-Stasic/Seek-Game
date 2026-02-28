@@ -5,3 +5,23 @@ export const items = [
   { id: "4", name: "Кольцо", img: "img/items/ring.png" },
   { id: "5", name: "Зеркало", img: "img/items/mirror.png" },
 ];
+export const levels = {
+  easy: {
+    name: "Лёгкий",
+    itemSize: 200,
+    timeLimit: null,
+    secret: false,
+  },
+  medium: {
+    name: "Средний",
+    itemSize: 100,
+    timeLimit: 120,
+    secret: false,
+  },
+  hard: {
+    name: "Сложный",
+    itemSize: 50,
+    timeLimit: 60,
+    secret: false,
+  },
+};

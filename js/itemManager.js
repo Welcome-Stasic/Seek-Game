@@ -1,13 +1,22 @@
-export function initItemManager(roomElem, gameState, ui, onAllFound, sound) {
+export function initItemManager(
+  roomElem,
+  gameState,
+  ui,
+  onAllFound,
+  sound,
+  onMiss,
+) {
   roomElem.addEventListener("click", (e) => {
     const itemElem = e.target.closest(".item");
     if (!itemElem) {
+      onMiss();
       sound.playWrong();
       return;
     }
 
     const itemId = itemElem.dataset.itemId;
     if (!itemId) {
+      onMiss();
       sound.playWrong();
       return;
     }

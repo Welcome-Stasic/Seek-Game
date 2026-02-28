@@ -5,6 +5,8 @@ import { createUI } from "./ui.js";
 import { initItemManager } from "./itemManager.js";
 import { initFlashlight } from "./flashlight.js";
 import { sound } from "./sounds.js";
+import { startTimer, stopTimer, hideTimer, resetTimer } from "./timer.js";
+import { calcStars, setStar } from "./star.js";
 
 const room = document.getElementById("room");
 const itemsLayer = document.getElementById("itemsLayer");
@@ -12,9 +14,41 @@ const overlay = document.getElementById("overlay");
 const panel = document.getElementById("panel");
 const counter = document.getElementById("counter");
 const victoryMess = document.getElementById("victory-mess");
+const startScreen = document.getElementById("start-screen");
+let counterMiss = document.getElementById("counterMiss");
 
-function initGame() {
-  generateItems(itemsLayer, items);
+let currentLevel = null;
+let miss = 0;
+let timer = null;
+let timeLeft = 0;
+
+export function initGame(level, params) {
+  currentLevel = level;
+  miss = 0;
+  resetTimer();
+
+  function gameOver() {
+    stopTimer();
+    itemsLayer.innerHTML = "";
+    startScreen.classList.remove("hidden");
+    startScreen.classList.remove("opacity");
+    sound.stopMusic();
+    sound.playTimeEnd();
+    alert("Время вышло!");
+  }
+
+  const onMiss = () => {
+    miss += 1;
+    counterMiss.textContent = miss;
+  };
+
+  generateItems(itemsLayer, items, params.itemSize);
+
+  if (params.timeLimit) {
+    startTimer(params.timeLimit, gameOver);
+  } else {
+    hideTimer();
+  }
 
   const gameState = createGameState(items);
 
@@ -24,13 +58,19 @@ function initGame() {
   const flashlight = initFlashlight(overlay, itemsLayer, room, 130);
 
   const onAllFound = () => {
+    const stars = calcStars(miss);
+    stopTimer();
+    hideTimer();
     ui.showVictory();
     flashlight.disabled();
     sound.playVictory();
     sound.stopMusic();
+    setStar(currentLevel, stars);
+    window.dispatchEvent(new CustomEvent("starsUpdated"));
+    startScreen.classList.remove("hidden");
+    startScreen.classList.remove("opacity");
+    itemsLayer.innerHTML = "";
   };
 
-  initItemManager(room, gameState, ui, onAllFound, sound);
+  initItemManager(room, gameState, ui, onAllFound, sound, onMiss);
 }
-
-window.addEventListener("load", initGame);

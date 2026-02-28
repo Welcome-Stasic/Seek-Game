@@ -11,7 +11,23 @@
 </head>
 <body>
     <div id="start-screen" class="start-screen">
-        <div class="start-message">Нажмите чтобы запустить игру</div>
+        <div class="level-menu">
+            <h2>Уровни сложности</h2>
+            <div class="level-btns">
+                <button data-level="easy" class="level-btn">
+                    <span>Лёгкий</span>
+                    <div class="stars" id="stars-easy"></div>
+                </button>
+                <button data-level="medium" class="level-btn">
+                    <span>Средний</span>
+                    <div class="stars" id="stars-medium"></div>
+                </button>
+                <button data-level="hard" class="level-btn">
+                    <span>Сложный</span>
+                    <div class="stars" id="stars-hard"></div>
+                </button>
+            </div>
+        </div>
     </div>
     <div class="game-container">
         <div class="room" id="room">
@@ -24,6 +40,11 @@
             <div class="counter" id="counter"></div>
             <div class="victory-mess hidden" id="victory-mess">Все предметы
                 найдены!</div>
+            <div id="timer" class="counter hidden"></div>
+            <div class="counter miss">
+                <span>Всего промахов:</span>
+                <div id="counterMiss">0</div>
+            </div>
         </div>
     </div>
     <script type="module" src="js/main.js"></script>

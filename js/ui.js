@@ -19,7 +19,7 @@ export function createUI(panel, counter, victoryMessElem) {
       li.appendChild(img);
       li.appendChild(text);
       if (item.found) {
-        li.className.add("found");
+        li.classList.add("found");
       }
       panel.appendChild(li);
     });

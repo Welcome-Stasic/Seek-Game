@@ -210,14 +210,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #4a3a2a;
-  background-image: repeating-linear-gradient(
-    45deg,
-    rgba(0, 0, 0, 0.1) 0px,
-    rgba(0, 0, 0, 0.1) 2px,
-    transparent 2px,
-    transparent 4px
-  );
+  background-color: #00000059;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -249,4 +242,78 @@ body {
 }
 .opacity {
   opacity: 0;
+}
+.level-menu {
+  background: #4a3a2a;
+  padding: 30px;
+  border-radius: 30px 10px 30px 10px;
+  box-shadow:
+    0 10px 0 #3f2f1f,
+    inset 0 1px 3px rgba(255, 240, 200, 0.3);
+  border: 2px dashed #9b846b;
+  text-align: center;
+}
+.level-menu h2 {
+  color: #ecd9c0;
+}
+
+.level-btns {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.level-btn {
+  background: #6b4f35;
+  border: none;
+  padding: 15px 25px;
+  border-radius: 20px;
+  color: #ecd9c0;
+  font-family: "Short Stack", cursive;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 5px 0 #3f2f1f;
+  transition: transform 0.1s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.level-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 0 #3f2f1f;
+}
+
+.level-btn:active {
+  transform: translateY(5px);
+  box-shadow: 0 2px 0 #3f2f1f;
+}
+
+.stars {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+}
+
+.star {
+  width: 30px;
+  height: 30px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.star.gray {
+  background-image: url("../img/gold-star.png");
+  filter: grayscale(1);
+}
+
+.star.gold {
+  background-image: url("../img/gold-star.png");
+}
+.miss {
+  font-size: 20px;
 }

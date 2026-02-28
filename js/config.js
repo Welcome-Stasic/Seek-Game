@@ -13,6 +13,7 @@ export const levels = {
     bg_img: "img/background1.webp",
     radius: 200,
   },
+
   medium: {
     name: "Средний",
     itemSize: 100,
@@ -20,6 +21,7 @@ export const levels = {
     bg_img: "img/background2.jpg",
     radius: 160,
   },
+
   hard: {
     name: "Сложный",
     itemSize: 50,

@@ -15,7 +15,9 @@ body {
 .room {
   position: relative;
   flex: 1;
-  background: url("../img/background.webp") no-repeat center/cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .overlay {
   position: absolute;

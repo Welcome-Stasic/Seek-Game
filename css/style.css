@@ -36,9 +36,6 @@ body {
   margin-top: 20px;
 }
 
-.hidden {
-  display: none;
-}
 .item {
   position: absolute;
   width: 50px;
@@ -318,4 +315,34 @@ body {
 }
 .miss {
   font-size: 20px;
+}
+.boss {
+  margin-top: 10px;
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+}
+.btn-boss {
+  background: #6b4f35;
+  width: 50%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  color: #ecd9c0;
+  text-decoration: none;
+  font-family: "Short Stack", cursive;
+  font-size: 30px;
+  cursor: pointer;
+  box-shadow: 0 5px 0 #3f2f1f;
+  transition: transform 0.1s;
+}
+.btn-boss:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 0 #3f2f1f;
+}
+.hidden {
+  display: none;
 }

@@ -21,5 +21,7 @@ export function createGameState(itemsList) {
     getItemFound: () => items.filter((i) => i.found).length,
 
     allCheckFound: () => items.every((i) => i.found),
+
+    clearState: () => items.forEach((item) => (item.found = false)),
   };
 }

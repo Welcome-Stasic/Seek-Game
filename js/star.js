@@ -18,3 +18,7 @@ export function calcStars(miss) {
   }
   return 1;
 }
+export function checkAllStars() {
+  const stars = getStars();
+  return stars.easy === 3 && stars.medium === 3 && stars.hard === 3;
+}

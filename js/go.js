@@ -1,6 +1,7 @@
 import { sound } from "./sounds.js";
 import { levels } from "./config.js";
-import { getStars } from "./star.js";
+import { checkAllStars, getStars } from "./star.js";
+const final = document.getElementById("final");
 
 document.addEventListener("DOMContentLoaded", () => {
   room.style.backgroundImage = `url('${levels.easy.bg_img}')`;
@@ -20,7 +21,11 @@ document.addEventListener("DOMContentLoaded", () => {
         box.appendChild(starDiv);
       }
     });
+    if (checkAllStars()) {
+      final.classList.remove("hidden");
+    }
   }
+
   document.querySelectorAll(".level-btn").forEach((btn) => {
     btn.addEventListener("click", () => {
       const level = btn.dataset.level;

@@ -21,6 +21,7 @@ let currentLevel = null;
 let miss = 0;
 
 export function initGame(level, params) {
+  victoryMess.classList.add("hidden");
   currentLevel = level;
   miss = 0;
   resetTimer();
@@ -49,6 +50,7 @@ export function initGame(level, params) {
   }
 
   const gameState = createGameState(items);
+  gameState.clearState();
 
   const ui = createUI(panel, counter, victoryMess);
   ui.renderPanel(gameState.getItems());
@@ -69,6 +71,5 @@ export function initGame(level, params) {
     startScreen.classList.remove("opacity");
     itemsLayer.innerHTML = "";
   };
-
   initItemManager(room, gameState, ui, onAllFound, sound, onMiss);
 }

@@ -8,7 +8,7 @@ export const items = [
 export const levels = {
   easy: {
     name: "Лёгкий",
-    itemSize: 200,
+    itemSize: 130,
     timeLimit: null,
     bg_img: "img/background1.webp",
     radius: 200,
@@ -16,7 +16,7 @@ export const levels = {
 
   medium: {
     name: "Средний",
-    itemSize: 100,
+    itemSize: 80,
     timeLimit: 120,
     bg_img: "img/background2.jpg",
     radius: 160,
